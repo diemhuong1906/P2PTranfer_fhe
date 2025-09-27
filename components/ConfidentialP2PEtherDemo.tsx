@@ -1,11 +1,11 @@
 
 "use client";
 
-import { useFhevm } from "../fhevm/useFhevm"; // Adjust path
-import { useInMemoryStorage } from "../hooks/useInMemoryStorage"; // Adjust path
-import { useMetaMaskEthersSigner } from "../hooks/metamask/useMetaMaskEthersSigner"; // Adjust path
-import { useConfidentialP2PEther } from "@/hooks/useConfidentialP2PEther"; // Adjust path to the new hook
-import { errorNotDeployed } from "./ErrorNotDeployed"; // Assume you have this
+import { useFhevm } from "../fhevm/useFhevm";
+import { useInMemoryStorage } from "../hooks/useInMemoryStorage";
+import { useMetaMaskEthersSigner } from "../hooks/metamask/useMetaMaskEthersSigner";
+import { useConfidentialP2PEther } from "@/hooks/useConfidentialP2PEther";
+import { errorNotDeployed } from "./ErrorNotDeployed";
 import { useState } from "react";
 import { ethers } from "ethers";
 
@@ -192,7 +192,6 @@ export const ConfidentialP2PEtherDemo = () => {
   );
 };
 
-// Reuse printProperty and printBooleanProperty from template
 function printProperty(name: string, value: unknown) {
   let displayValue: string;
 
