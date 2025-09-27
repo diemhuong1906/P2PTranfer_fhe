@@ -4,11 +4,11 @@
 import { ethers } from "ethers";
 import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { FhevmInstance } from "@/fhevm/fhevmTypes"; // Adjust path based on your project
-import { GenericStringStorage } from "@/fhevm/GenericStringStorage"; // Adjust path
+import { FhevmInstance } from "@/fhevm/fhevmTypes";
+import { GenericStringStorage } from "@/fhevm/GenericStringStorage";
 
-import { ConfidentialP2PEtherAddresses } from "@/abi/ConfidentialP2PEtherAddresses"; // Assume you create this similar to DeInsuredAddresses
-import { ConfidentialP2PEtherABI } from "@/abi/ConfidentialP2PEtherABI"; // Extract ABI from ConfidentialP2PEther.json and create this file
+import { ConfidentialP2PEtherAddresses } from "@/abi/ConfidentialP2PEtherAddresses";
+import { ConfidentialP2PEtherABI } from "@/abi/ConfidentialP2PEtherABI";
 
 type ConfidentialP2PEtherInfoType = {
   abi: typeof ConfidentialP2PEtherABI.abi;
@@ -287,7 +287,7 @@ export const useConfidentialP2PEther = (parameters: {
 
   // Deposit
   const deposit = useCallback(
-    async (clearAmount: number) => { // Amount in wei
+    async (clearAmount: number) => {
       if (isRefreshingRef.current || isDepositingRef.current) {
         console.log("[useConfidentialP2PEther] Already refreshing or depositing, skipping");
         return;
@@ -329,7 +329,7 @@ export const useConfidentialP2PEther = (parameters: {
         try {
           const signerAddr = await thisEthersSigner.getAddress();
           const input = instance.createEncryptedInput(thisConfidentialP2PEtherAddress, signerAddr);
-          input.add128(clearAmount); // Assuming euint128 for amount
+          input.add128(clearAmount);
           const enc = await input.encrypt();
 
           if (isStale()) {
@@ -421,7 +421,7 @@ export const useConfidentialP2PEther = (parameters: {
         try {
           const signerAddr = await thisEthersSigner.getAddress();
           const input = instance.createEncryptedInput(thisConfidentialP2PEtherAddress, signerAddr);
-          input.add128(clearAmount); // Assuming euint128 for amount
+          input.add128(clearAmount);
           const enc = await input.encrypt();
 
           if (isStale()) {
