@@ -1,30 +1,65 @@
-# FHEVM React Template
+# FHEVM with ConfidentialP2PEther contract
 
-The FHEVM React Template is an ultra-minimal React project for building and running an FHEVM-enabled dApp.
-It works alongside the [fhevm-hardhat-template](https://github.com/zama-ai/fhevm-hardhat-template)
-and provides a simple development frontend for interacting with the `FHECounter.sol` contract.
 
-This template also illustrates how to run your FHEVM-dApp on both Sepolia as well as a local Hardhat Node (much faster).
+This project demonstrates a confidential peer-to-peer payment system using Fully Homomorphic Encryption (FHE) on top of the fhEVM.
 
-## Features
+🔐 Key Features
 
-- **@zama-fhe/relayer-sdk**: Fully Homomorphic Encryption for Ethereum Virtual Machine
-- **React**: Modern UI framework for building interactive interfaces
-- **Next.js**: Next-generation frontend build tool
-- **Tailwind**: Utility-first CSS framework for rapid UI development
+Confidential Transfers – Encrypted token amounts are transferred peer-to-peer while remaining private on-chain.
 
-## Requirements
+Secure Balances – Each user’s balance is stored in encrypted form, preventing public visibility.
 
-- You need to have Metamask browser extension installed on your browser.
+Deposits & Withdrawals – Users can deposit Ether into the contract and withdraw it back, with amounts handled securely.
 
-## Local Hardhat Network (to add in MetaMask)
+Real-time Event Tracking – The UI listens for deposit, transfer, and withdraw events, updating user state instantly.
 
-Follow the step-by-step guide in the [Hardhat + MetaMask](https://docs.metamask.io/wallet/how-to/run-devnet/) documentation to set up your local devnet using Hardhat and MetaMask.
+🖥️ How to Use the Demo UI
+1. Connect Wallet
 
-- Name: Hardhat
-- RPC URL: http://127.0.0.1:8545
-- Chain ID: 31337
-- Currency symbol: ETH
+Open the demo interface.
+
+Click "Connect to MetaMask" to link your account.
+
+Once connected, the UI will display your chain ID, account address, and whether the contract is deployed on the selected network.
+
+2. Deposit
+
+Enter an amount (in wei) in the Deposit Amount input.
+
+Click Deposit to send encrypted Ether into the contract.
+
+After confirmation, your Encrypted Balance will update.
+
+3. Transfer
+
+Enter the amount (in wei) and a recipient address.
+
+Click Transfer to privately send encrypted Ether.
+
+The transaction is confirmed on-chain, but the transferred value remains confidential.
+
+4. Withdraw
+
+Click Withdraw to retrieve your balance back into your wallet.
+
+The contract will decrypt only the portion relevant to the withdrawing user.
+
+5. Refresh State
+
+At any time, you can click Refresh State to reload your encrypted balance, total supply, and other metadata.
+
+📊 UI Components
+
+Chain Infos – Displays chain ID, connected account, and deployed contract address.
+
+FHEVM Status – Shows the instance state, connection status, and potential errors.
+
+Balances – Displays encrypted balance and encrypted total supply.
+
+Actions – Deposit, Transfer, Withdraw buttons with live status indicators.
+
+Messages – Real-time feedback for transaction progress (pending, confirmed, failed).
+
 
 ## Install
 
